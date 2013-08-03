@@ -1,0 +1,35 @@
+'use strict'
+
+MainCtrl = ($scope, webService, helperService) ->
+
+  $scope.setup = ->
+    helperService.setName("Coffee")
+    promise = webService.getGreeting()
+    promise.then $scope.success, $scope.error
+
+  $scope.success = (response) ->
+    $scope.name = "World"
+ 
+  $scope.error = (response) ->
+    $scope.name = "Error"
+
+  $scope.setup()
+
+MainCtrl.$inject = ["$scope", "webService", "helperService"]
+angular.module("demoApp").controller "MainCtrl", MainCtrl
+
+
+class MainCtrl
+
+  constructor: (@$scope, @webService, @helperService) ->
+    @$scope.sayGoodBye = =>
+      @$scope.name = ".. It was nice meeting you"
+    
+    promise = @webService.getGreeting()
+    promise.then @success, @error
+
+  success: (response) =>
+    @$scope.name = "World"
+ 
+  error: (response) =>
+    @$scope.name = "Cruel World"

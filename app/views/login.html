@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="span12" ng-controller="LoginCtrl">
+    <div class="well">
+      <div>{{message}}</div>
+      <h2>Login</h2>
+      <form name="loginForm" class="form" data-ng-submit="login(user)">
+        <input type="text" ng-model="user.username" placeholder="Username" required /><br/>
+        <input type="password" ng-model="user.password" placeholder="Password" required /><br/>
+        <input class="btn" type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+</div>
