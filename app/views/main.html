@@ -1,6 +1,30 @@
 <div class="row">
-  <div class="span12">
-    <div>{{message}}</div>
+  <div class="span8">
+    <div class="alert alert-block" ng-show="message">{{message}}</div>
     <h2>Hello {{name}}!</h2>
+  </div>
+  <div class="span4">
+    <h3 data-current-time class="pull-right"></h3>
+  </div>
+</div>
+
+<div class="row display">
+  <div class="span12">
+    <ul>
+      <li ng-repeat="post in posts">{{post.title}} : {{post.body}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <div class="well">
+      <h2>Post a message:</h2>
+      <form name="postForm" class="form" data-ng-submit="send(post)">
+        <input type="text" ng-model="post.title" placeholder="Title" required /><br/>
+        <input type="text" ng-model="post.body" placeholder="Body" required /><br/>
+        <input class="btn" type="submit" value="Post">
+      </form>
+    </div>
   </div>
 </div>

@@ -357,14 +357,15 @@ module.exports = function (grunt) {
     'cdnify',
     'ngmin',
     'cssmin',
-    'uglify',
+    //'uglify',
     'rev',
     'usemin'
   ]);
 
   grunt.registerTask('default', [
     'jshint',
-    'test',
+    'test:unit',
+    'test:e2e',
     'build'
   ]);
 };
